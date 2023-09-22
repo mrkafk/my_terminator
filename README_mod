@@ -1,0 +1,42 @@
+
+mb
+
+For Python 3:
+
+./terminatorlib/terminal.py
+
+In: 
+
+class Terminal(Gtk.VBox):
+    """Class implementing the VTE widget and its wrappings"""
+
+########################
+    def key_type_mb(self):
+        # self.titlebar.label.edit()
+        """type text into terminal"""
+        for term in self.terminator.get_target_terms(self):
+            term.feed('mb\n'.encode())
+        self.vte.grab_focus()
+
+#############################
+
+
+./terminatorlib/config.py:            'type_mb'          : 'F2',
+
+
+        'keybindings': {
+            'zoom_in'          : '<Control>plus',
+            'zoom_out'         : '<Control>minus',
+            'zoom_normal'      : '<Control>0',
+            'new_tab'          : '<Shift><Control>t',
+            'cycle_next'       : '<Control>Tab',
+            'cycle_prev'       : '<Shift><Control>Tab',
+            'go_next'          : '<Shift><Control>n',
+            'go_prev'          : '<Shift><Control>p',
+
+            ...
+
+            # 'help'             : 'F1',
+            'type_mb'          : 'F2',
+            'type_sudosu'      : '<Control>F2'
+        },
